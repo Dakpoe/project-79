@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { Text, View, Image, ImageBackground, TouchableOpacity, StyleSheet, Alert, Platform, StatusBar, SafeAreaView, Linking, ScrollView } from 'react-native';
 
-// import axios from 'axios';
-// import {axios} from 'axios';
-// import axios from axios;
-// import "axios" from axios;
+import axios from 'axios';
+
 
 export default class DailyPicScreen extends Component {
     constructor(props) {
@@ -20,7 +18,7 @@ export default class DailyPicScreen extends Component {
 
     getAPOD = () => {
         axios
-            .get("https://api.nasa.gov/planetary/apod?api_key=COGdtQeIWk1mbziFVQgpfK3JfP4dBSAlQg8imDGw")
+            .get("https://api.nasa.gov/neo/rest/v1/feed?api_key=NQJN5KgqbdX02dNCBE4safXcSw6SW01bgqLKRGBe")
             .then(response => {
                 this.setState({ apod: response.data })
             })
@@ -31,26 +29,11 @@ export default class DailyPicScreen extends Component {
 
     renderImage = (url) => {
 
-        // <Image source={{ "uri": url }} 
-        // style={{ width: "100%", height: 300, 
-        //borderRadius: 20, margin: 3 }}>
-        // </Image>
+         <Image source={{ "uri": url }} 
+         style={{ width: "100%", height: 300, 
+        borderRadius: 20, margin: 3 }}>
+        </Image>
 
-        // <Image source={ "uri": url }
-        // style={{ width: "100%", height: 300, 
-        //borderRadius: 20, margin: 3 }}>
-        // </Image>
-        
-        // <Image source={{ "uri"= url }} 
-        // style={{ width: "100%", height: 300, 
-        //borderRadius: 20, margin: 3 }}>
-        // </Image>
-        
-        // <Image require={{ "uri": url }} 
-        // style={{ width: "100%", height: 300, 
-        //borderRadius: 20, margin: 3 }}>
-        // </Image>
-        
     }
 
     renderVideo = () => {
@@ -128,8 +111,7 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         color: "white",
         marginTop: 10
-        // margin: 10,
-        // textAlign: 'center'
+        
     },
     listContainer: {
         backgroundColor: 'rgba(52, 52, 52, 0.5)',
